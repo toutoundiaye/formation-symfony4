@@ -1,3 +1,35 @@
 body {
     background-color: #C4C4C4;
 }
+
+nav {
+    background-color: black;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav > ul {
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+}
+
+nav a {
+    display: block;
+    padding: 1em;
+    background: darkcyan;
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+nav > ul > li {
+    position: relative;
+    border-right: solid 1px black;
+}
+nav > ul > li > a {
+    min-width: 10ch;
+}

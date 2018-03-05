@@ -1,0 +1,7 @@
+Nelmio\Entity\Worker:
+  worker{1..10}:
+  firstName: '<firstName()>'
+  lastName: '<lastName()>'
+  jobTitle: '<jobTitle()>'
+  workingTime: '<numberBetween(1, 10)>x @worker*'
+  wage: '50%? <numberBetween(1, 200)>'

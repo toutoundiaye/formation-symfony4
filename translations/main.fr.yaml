@@ -2,3 +2,6 @@ main:
   index:
     welcome: Bienvenue sur mon super ERP, %name% !
     title: Acceuil
+    menuAccueil: Acceuil
+    menuClient: Clients
+    menuWorker: Employés

@@ -1,0 +1,8 @@
+worker:
+  page: employés
+  title: Voici la liste de nos employés :
+  lastName: Nom
+  firstName: Prénom
+  jobTitle: Fonction
+  workingTime: Temps de Travail
+  wage: Gage
