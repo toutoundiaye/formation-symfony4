@@ -33,3 +33,19 @@ nav > ul > li {
 nav > ul > li > a {
     min-width: 10ch;
 }
+
+.table{
+    border-collapse: collapse;
+}
+
+.table td, .table th {
+    border: solid 1px black;
+}
+
+.table th {
+    background-color:burlywood;
+}
+
+.table tr:nth-child(even){
+    background-color: #f2f2f2;
+}

@@ -10,9 +10,8 @@
 
 <div class="example-wrapper">
     <h1>{{ 'worker.title'|trans({}, 'worker') }}</h1>
-    {{ dump(workers) }}
-    <div class="table">
-        <table border solid 1px>
+    <div>
+        <table class="table">
             <thead>
             <tr>
                 <th>{{ 'worker.lastName'|trans({}, 'worker') }}</th>
@@ -30,7 +29,6 @@
                 <td>{{ worker.jobTitle }}</td>
                 <td>{{ worker.workingTime }}</td>
                 <td>{{ worker.wage }}</td>
-
             </tr>
             {% endfor %}
             </tbody>

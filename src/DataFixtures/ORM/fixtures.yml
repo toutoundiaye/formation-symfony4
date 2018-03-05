@@ -1,0 +1,7 @@
+App\Entity\Worker:
+  worker{1..10}:
+    firstName: '<firstName()>'
+    lastName: '<lastName()>'
+    jobTitle: '<jobTitle()>'
+    workingTime: '<numberBetween(20, 40)>'
+    wage: '<numberBetween(9.99, 20)>'
