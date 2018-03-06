@@ -14,7 +14,7 @@ class WorkerFixtures extends Fixture
             $worker = (new Worker())
                 ->setFirstName('Gruh')
                 ->setLastName('Jean')
-                ->setJobTitle('Facteur-CEO')
+                ->setJobTitle('cook')
                 ->setWorkingTime('23.5')
                 ->setWage('14.22');
 

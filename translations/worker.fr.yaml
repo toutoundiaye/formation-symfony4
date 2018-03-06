@@ -6,9 +6,15 @@ worker:
   jobTitle: Fonction
   workingTime: Temps de Travail
   wage: Gage
+  startDate: Date d'embauche
   action: Action
   edit: Éditer
   create: Ajouter un employé
   suppress: Supprimer
   createWorker:
     title: Nouveau employé
+  field:
+      jobTitleChoices:
+        dev: Développeur
+        trainee: Stagiaire
+        cook: Cuisinier

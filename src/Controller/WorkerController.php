@@ -114,11 +114,10 @@ class WorkerController extends Controller
 
     /**
      * @Route("/delete/{id}")
-     * @Method({"GET"})
+     * @Method("DELETE")
      */
     public function delete(
         Worker $worker,
-        Request $request,
         EntityManagerInterface $manager): Response
     {
             $manager->remove($worker);

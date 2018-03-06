@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\Date;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\WorkerRepository")
@@ -38,13 +39,42 @@ class Worker
      * @ORM\Column(type="decimal", precision=3, scale=1)
      * @var string
      */
-    private $workingTime = 0;
+    private $workingTime = '00.0';
 
     /**
      * @ORM\Column(type="decimal", precision=5, scale=2)
      * @var string
      */
-    private $wage = 0;
+    private $wage = '000.0';
+
+    /**
+     * @ORM\Column(type="date")
+     * @var \DateTime
+     */
+    private $startDate;
+
+    /**
+     * @return \DateTime
+     */
+    public function getStartDate(): \DateTime
+    {
+        return $this->startDate;
+    }
+
+    /**
+     * @param \DateTime $startDate
+     * @return Worker
+     */
+    public function setStartDate(\DateTime $startDate): Worker
+    {
+        $this->startDate = $startDate;
+        return $this;
+    }
+
+    public function __construct()
+    {
+        $this->startDate= new \Datetime();
+    }
 
     /**
      * @return mixed
