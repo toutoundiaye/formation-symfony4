@@ -1,4 +1,8 @@
 base:
   title: Mon ERP
 
-
+worker:
+  flash:
+    saved: Employé enregistré
+    edited: Employé mise à jour
+    deleted: Employé supprimé

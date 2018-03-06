@@ -20,31 +20,31 @@ class Worker
      * @ORM\Column(type="string", length=255)
      * @var string
      */
-    private $lastName;
+    private $lastName = '';
 
     /**
      * @ORM\Column(type="string", length=255)
      * @var string
      */
-    private $firstName;
+    private $firstName = '';
 
     /**
      * @ORM\Column(type="string", length=255)
      * @var string
      */
-    private $jobTitle;
+    private $jobTitle = '';
 
     /**
      * @ORM\Column(type="decimal", precision=3, scale=1)
      * @var string
      */
-    private $workingTime;
+    private $workingTime = 0;
 
     /**
      * @ORM\Column(type="decimal", precision=5, scale=2)
      * @var string
      */
-    private $wage;
+    private $wage = 0;
 
     /**
      * @return mixed

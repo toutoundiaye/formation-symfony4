@@ -9,7 +9,8 @@
     </head>
     <body>
         {% block header%}
-        {% include 'navbar.html.twig' %}
+        {% include 'navbar.html.twig' only %}
+        {% include 'flash.html.twig' only %}
         {% endblock %}
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}

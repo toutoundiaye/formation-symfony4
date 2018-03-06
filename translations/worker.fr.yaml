@@ -6,3 +6,9 @@ worker:
   jobTitle: Fonction
   workingTime: Temps de Travail
   wage: Gage
+  action: Action
+  edit: Éditer
+  create: Ajouter un employé
+  suppress: Supprimer
+  createWorker:
+    title: Nouveau employé

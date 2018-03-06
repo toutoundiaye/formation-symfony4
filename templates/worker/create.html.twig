@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ 'worker.createWorker.title'|trans({}, 'worker') }} - {{ parent() }}{% endblock %}
+
+{% block body %}
+    <div class="example-wrapper">
+        <h1>{{ 'worker.createWorker.title'|trans({}, 'worker') }}</h1>
+    </div>
+    <div>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <br />
+       <input type="submit" value="{{ 'worker.create'|trans({}, 'worker') }}"/>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

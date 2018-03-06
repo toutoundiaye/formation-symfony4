@@ -11,6 +11,10 @@
 <div class="example-wrapper">
     <h1>{{ 'worker.title'|trans({}, 'worker') }}</h1>
     <div>
+        <a href="{{ path('app_worker_create') }}"><button>{{ 'worker.create'|trans({}, 'worker') }}</button></a>
+    </div>
+    <br/>
+    <div>
         <table class="table">
             <thead>
             <tr>
@@ -19,6 +23,7 @@
                 <th>{{ 'worker.jobTitle'|trans({}, 'worker') }}</th>
                 <th>{{ 'worker.workingTime'|trans({}, 'worker') }}</th>
                 <th>{{ 'worker.wage'|trans({}, 'worker') }}</th>
+                <th>{{ 'worker.action'|trans({}, 'worker') }}</th>
             </tr>
             </thead>
             <tbody>
@@ -29,6 +34,9 @@
                 <td>{{ worker.jobTitle }}</td>
                 <td>{{ worker.workingTime }}</td>
                 <td>{{ worker.wage }}</td>
+                <td><a href="{{ path('app_worker_edit', {id: worker.id}) }}">{{ 'worker.edit'|trans({}, 'worker') }}</a>
+                    <a href="{{ path('app_worker_delete', {id: worker.id}) }}">{{ 'worker.suppress'|trans({}, 'worker') }}</a></td>
+
             </tr>
             {% endfor %}
             </tbody>
