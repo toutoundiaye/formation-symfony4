@@ -1,8 +1,15 @@
+App\Entity\Job:
+  job{1..10}:
+    title: '<jobTitle()>'
+    wage: '<decimalBetween(9.99, 35.50)>'
+    description: '<text()>'
+
 App\Entity\Worker:
   worker{1..10}:
     firstName: '<firstName()>'
     lastName: '<lastName()>'
-    jobTitle: 'dev'
     workingTime: '<numberBetween(20, 40)>'
-    wage: '<numberBetween(9.99, 20)>'
     startDate: '<(new DateTime())>'
+    job: '@job*'
+
+

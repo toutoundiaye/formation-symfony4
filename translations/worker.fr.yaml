@@ -3,7 +3,6 @@ worker:
   title: Voici la liste de nos employés :
   lastName: Nom
   firstName: Prénom
-  jobTitle: Fonction
   workingTime: Temps de Travail
   wage: Gage
   startDate: Date d'embauche
@@ -13,11 +12,7 @@ worker:
   suppress: Supprimer
   createWorker:
     title: Nouveau employé
-  field:
-      jobTitleChoices:
-        dev: Développeur
-        trainee: Stagiaire
-        cook: Cuisinier
+  job: Fonction
   read:
     since: depuis le %date%
     contract: >

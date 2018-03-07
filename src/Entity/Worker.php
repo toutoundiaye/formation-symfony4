@@ -30,11 +30,12 @@ class Worker
     private $firstName = '';
 
     /**
-     * @ORM\Column(type="string", length=255)
-     * @var string
+     * @ORM\ManyToOne(targetEntity="Job", inversedBy="workers")
+     * 
+     * @var Job
      */
-    private $jobTitle = '';
-
+    private $job;
+    
     /**
      * @ORM\Column(type="decimal", precision=3, scale=1)
      * @var string
@@ -119,25 +120,7 @@ class Worker
         $this->firstName = $firstName;
         return $this;
     }
-
-    /**
-     * @return string
-     */
-    public function getJobTitle(): string
-    {
-        return $this->jobTitle;
-    }
-
-    /**
-     * @param string $jobTitle
-     * @return Worker
-     */
-    public function setJobTitle(string $jobTitle)
-    {
-        $this->jobTitle = $jobTitle;
-        return $this;
-    }
-
+    
     /**
      * @return string
      */
@@ -157,20 +140,20 @@ class Worker
     }
 
     /**
-     * @return string
+     * @return Job|null
      */
-    public function getWage(): string
+    public function getJob(): ? Job
     {
-        return $this->wage;
+        return $this->job;
     }
 
     /**
-     * @param string $wage
+     * @param Job $job
      * @return Worker
      */
-    public function setWage(string $wage)
+    public function setJob(Job $job): Worker
     {
-        $this->wage = $wage;
+        $this->job = $job;
         return $this;
     }
 

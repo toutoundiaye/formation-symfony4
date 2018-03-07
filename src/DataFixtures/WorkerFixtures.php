@@ -5,8 +5,9 @@ namespace App\DataFixtures;
 use App\Entity\Worker;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
-class WorkerFixtures extends Fixture
+class WorkerFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
@@ -14,12 +15,15 @@ class WorkerFixtures extends Fixture
             $worker = (new Worker())
                 ->setFirstName('Gruh')
                 ->setLastName('Jean')
-                ->setJobTitle('cook')
-                ->setWorkingTime('23.5')
-                ->setWage('14.22');
-
+                ->setJob($this->getReference("job-$i"))
+                ->setWorkingTime('23.5');
             $manager->persist($worker);
         }
         $manager->flush();
+    }
+
+    public function getDependencies(): array
+    {
+        return [JobFixtures::class];
     }
 }

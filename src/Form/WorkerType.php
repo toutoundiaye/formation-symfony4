@@ -2,10 +2,11 @@
 
 namespace App\Form;
 
+use App\Entity\Job;
 use App\Entity\Worker;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class WorkerType extends AbstractType
@@ -15,24 +16,17 @@ class WorkerType extends AbstractType
         $builder
             ->add('lastName')
             ->add('firstName')
-            ->add('jobTitle', ChoiceType::class,[
-                'choices' => ['dev', 'trainee', 'cook'],
-                'choice_label' => function($value, $key, $index) {
-                    return "worker.field.jobTitleChoices.$value";
-                }
+            ->add('job', EntityType::class, [
+                'class' => Job::class,
+                'choice_label' => 'title'
             ])
             ->add('workingTime')
-            ->add('wage')
             ->add('startDate', null, [
                 'widget' => 'single_text'
             ])
         ;
     }
 
-    public function findOneById($id)
-    {
-
-    }
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([

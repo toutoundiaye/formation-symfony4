@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ 'job.title'| trans({}, 'job')}} - {{ parent() }}{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1> {{ 'job.accueil'| trans({}, 'job') }} : </h1>
+    <div>
+        <a href="{{ path('app_job_create') }}"><button>{{ 'job.create'|trans({}, 'job') }}</button></a>
+    </div>
+    <div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>{{ 'job.title'|trans({}, 'job') }}</th>
+                <th>{{ 'job.description'|trans({}, 'job') }}</th>
+                <th>{{ 'job.wage'|trans({}, 'job') }}</th>
+                <th>{{ 'job.workers'|trans({}, 'job') }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for job in jobs %}
+                <tr>
+                    <td><a href="#">{{ job.title }}</a></td>
+                    <td>{{ job.description }}</td>
+                    <td>{{ job.wage }}</td>
+                    <td>{% for worker in job.workers %}
+                        {{ worker.firstName }} {{ worker.lastName }}{{ loop.last ? '
+                        ' :',' }}
+                    {% endfor %}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
