@@ -1,7 +1,7 @@
 job:
-  title: Emplois
+  title: Emploi
   accueil: Voici la liste des emplois disponibles
-  description: description
+  description: Description
   wage: Tarif horaire (€)
   workers: Employés concernés
   create: Ajouter un emploi

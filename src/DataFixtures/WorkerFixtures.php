@@ -13,8 +13,8 @@ class WorkerFixtures extends Fixture implements DependentFixtureInterface
     {
         for ($i = 0; $i < 6; $i++) {
             $worker = (new Worker())
-                ->setFirstName('Gruh')
-                ->setLastName('Jean')
+                ->setFirstName('Jean')
+                ->setLastName('Gruh')
                 ->setJob($this->getReference("job-$i"))
                 ->setWorkingTime('23.5');
             $manager->persist($worker);
