@@ -29,6 +29,10 @@ class WorkerType extends AbstractType
         ;
     }
 
+    public function findOneById($id)
+    {
+
+    }
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([

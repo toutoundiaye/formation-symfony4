@@ -49,3 +49,7 @@ nav > ul > li > a {
 .table tr:nth-child(even){
     background-color: #f2f2f2;
 }
+
+.worker_link {
+    background-color: red;
+}

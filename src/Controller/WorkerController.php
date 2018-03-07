@@ -25,8 +25,14 @@ class WorkerController extends Controller
      */
     public function index(WorkerRepository $repository)
     {
+        $form = $this
+            ->createFormBuilder(null, [
+                'method' => 'DELETE'])
+            ->getForm();
+
         return $this->render('worker/index.html.twig', [
             'workers' => $repository->findAll(),
+            'form' => $form->createView()
         ]);
     }
 
@@ -83,20 +89,6 @@ class WorkerController extends Controller
         EntityManagerInterface $manager): Response
     {
         $form = $this->createForm(WorkerType::class, $worker);
-
-        //Si on fait appel au formBuilder
-        /*$form = $this
-            ->createFormBuilder($worker, [
-                'label_format' => 'worker.%name%',
-                'translation_domain' => 'worker',
-            ])
-            ->add('lastName')
-            ->add('firstName')
-            ->add('jobTitle')
-            ->add('workingTime')
-            ->add('wage')
-            ->getForm();*/
-
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -126,4 +118,15 @@ class WorkerController extends Controller
             $this->addFlash('success', 'worker.flash.deleted');
             return $this->redirectToRoute('app_worker_index');
     }
+
+    /**
+     * @Route("/show/{id}")
+     * @Method("GET")
+     */
+     public function show(Worker $worker, WorkerRepository $repository)
+     {
+         return $this->render('worker/show.html.twig', [
+             'worker' => $repository->findOneBy(['id' => $worker->getId()])
+         ]);
+     }
 }
