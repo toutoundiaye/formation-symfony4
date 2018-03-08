@@ -6,3 +6,8 @@ worker:
     saved: Employé enregistré
     edited: Employé mise à jour
     deleted: Employé supprimé
+
+security:
+  login:
+    page: Veillez vous identifier
+  title: Login Page

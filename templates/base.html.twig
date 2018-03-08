@@ -9,6 +9,12 @@
     </head>
     <body>
         {% block header%}
+            <div>
+                <a href="{{ path('app_security_logout') }}">Log out</a>
+                {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <div> <a href="{{ path('app_security_login') }}"><button>Connexion</button></a></div>
+                {% endif %}
+            </div>
         {% include 'navbar.html.twig' only %}
         {% include 'flash.html.twig' only %}
         {% endblock %}

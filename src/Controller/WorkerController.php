@@ -8,6 +8,7 @@ use App\Repository\WorkerRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,6 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Route("/worker")
+ * @Security("is_granted('IS_AUTHENTICATED_FULLY')", message="you must be authenticated before accessing this page")
  */
 class WorkerController extends Controller
 {
@@ -112,11 +114,13 @@ class WorkerController extends Controller
         Worker $worker,
         EntityManagerInterface $manager): Response
     {
-            $manager->remove($worker);
-            $manager->flush();
+        $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'Only admin can delete a worker');
 
-            $this->addFlash('success', 'worker.flash.deleted');
-            return $this->redirectToRoute('app_worker_index');
+        $manager->remove($worker);
+        $manager->flush();
+
+        $this->addFlash('success', 'worker.flash.deleted');
+        return $this->redirectToRoute('app_worker_index');
     }
 
     /**

@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ 'security.login.title' |trans }}{% endblock %}
+
+{% block body %}
+    <h1>{{ 'security.login.page' |trans }} - {{ parent() }}</h1>
+    {% if error is not empty %}
+        <p style="color: red">{{ error.message }}</p>
+    {% endif %}
+    <form action="{{ path('app_security_logincheck') }}" method="post">
+        <div>
+            <label for="[login]username">Username</label>
+            <input type="text" name="username" id="[login]username" value="{{ lastUsername }}"/>
+        </div>
+        <div>
+            <label for="[login]password">Password</label>
+            <input type="password" name="password" id="[login]password" />
+        </div>
+        <div>
+            <button type="submit">Log in</button>
+        </div>
+    </form>
+{% endblock %}

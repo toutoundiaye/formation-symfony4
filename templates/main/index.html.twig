@@ -1,13 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}{{ 'main.index.title' | trans({}, 'main') }} - {{ parent() }} {% endblock %}
+
 {% block body %}
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 <div class="example-wrapper">
-    <h1>{{ 'main.index.welcome' | trans({'%name%': name }, 'main') }}</h1>
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+    <h1>{{ 'main.index.welcome' | trans({}, 'main') }} {{ app.user.firstname }} </h1>
+    {% else %}
+    <h1>{{ 'main.index.welcome' | trans({}, 'main') }}</h1>
+    {% endif %}
     {{ dump(list) }}
 </div>
 {% endblock %}
