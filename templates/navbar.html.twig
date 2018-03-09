@@ -1,10 +1,9 @@
 <div class="navbar">
     <nav>
         <ul>
-            <li><a href="{{ path('app_main_index') }}">{{ 'main.index.menuAccueil' | trans({}, 'main') }}</a></li>
-            <li><a href="{{ path('app_worker_index') }}">{{ 'main.index.menuWorker' | trans({}, 'main') }}</a></li>
-            <li><a href="{{ path('app_customer_index') }}">{{ 'main.index.menuClient' | trans({}, 'main') }}</a></li>
-            <li><a href="{{ path('app_job_index') }}">{{ 'main.index.menuJob' | trans({}, 'main') }}</a></li>
+            {% for route, message in navbar_links() %}
+            <li><a href="{{ path(route) }}">{{ message | trans({}, 'main') }}</a></li>
+            {% endfor %}
         </ul>
     </nav>
 </div>

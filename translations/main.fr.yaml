@@ -7,3 +7,7 @@ main:
     menuWorker: Employés
     menuJob: Postes
     welcomeName: Bienvenue sur mon super ERP, Toto !
+  security:
+    action:
+      logout: Deconnexion
+      login: Connexion
