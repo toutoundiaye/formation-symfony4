@@ -1,7 +1,7 @@
 App\Entity\Job:
   job{1..10}:
     title: '<jobTitle()>'
-    wage: '<decimalBetween(9.99, 35.50)>'
+    wage: '<numberBetween(9.99, 35.50)>'
     description: '<text()>'
 
 App\Entity\Worker:

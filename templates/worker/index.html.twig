@@ -10,9 +10,11 @@
 
 <div class="example-wrapper">
     <h1>{{ 'worker.title'|trans({}, 'worker') }}</h1>
+    {% if is_granted('ROLE_ADMIN') %}
     <div>
         <a href="{{ path('app_worker_create') }}"><button>{{ 'worker.create'|trans({}, 'worker') }}</button></a>
     </div>
+    {% endif %}
     <br/>
     <div>
         <table class="table">
@@ -29,13 +31,17 @@
             <tr>
                 <td><a href="{{ path('app_worker_show', {id: worker.id}) }}">{{ worker.firstName }}</a></td>
                 <td>{{ worker.lastName }}</td>
+                {% if is_granted('ROLE_ADMIN') or app.user.worker == worker %}
                 <td><a href="{{ path('app_worker_edit', {id: worker.id}) }}">{{ 'worker.edit'|trans({}, 'worker') }}</a>
+                {% endif %}
+                    {% if is_granted('ROLE_ADMIN') %}
                     {{ form_start(form, {
                         attr:{class:'worker_link'},
                         action: path('app_worker_delete', {id: worker.id})
                     }) }}
                     <input type="submit" value="{{ 'worker.suppress'|trans({}, 'worker') }}"/>
                     {{ form_end(form) }}</td>
+                   {% endif %}
             </tr>
             {% endfor %}
             </tbody>

@@ -11,3 +11,12 @@ security:
   login:
     page: Veillez vous identifier
   title: Login Page
+
+job:
+  flash:
+    saved: Poste enregistré
+    edited: Poste mise à jour
+    deleted: Poste supprimé
+
+
+

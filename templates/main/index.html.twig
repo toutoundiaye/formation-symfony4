@@ -9,9 +9,9 @@
 </style>
 <div class="example-wrapper">
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-    <h1>{{ 'main.index.welcome' | trans({}, 'main') }} {{ app.user.firstname }} </h1>
+    <h1>{{ greeting }} </h1>
     {% else %}
-    <h1>{{ 'main.index.welcome' | trans({}, 'main') }}</h1>
+    <h1>{{ 'main.index.welcomeName' | trans({}, 'main') }}</h1>
     {% endif %}
     {{ dump(list) }}
 </div>

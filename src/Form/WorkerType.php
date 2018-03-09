@@ -8,21 +8,44 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Security\Core\Authorization\AuthorizationChecker;
+use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
 class WorkerType extends AbstractType
 {
+    /**
+     * @var AuthorizationCheckerInterface
+     */
+    private $checker;
+
+    /**
+     * WorkerType constructor.
+     * @param AuthorizationCheckerInterface $checker
+     */
+    public function __construct(AuthorizationCheckerInterface $checker)
+    {
+        $this->checker = $checker;
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $isAdmin = $this->checker->isGranted('ROLE_ADMIN');
+
         $builder
             ->add('lastName')
             ->add('firstName')
             ->add('job', EntityType::class, [
                 'class' => Job::class,
-                'choice_label' => 'title'
+                'choice_label' => 'title',
+                'disabled' => !$isAdmin
             ])
-            ->add('workingTime')
+            ->add('workingTime', null,
+                [
+                    'disabled' => !$isAdmin
+                ])
             ->add('startDate', null, [
-                'widget' => 'single_text'
+                'widget' => 'single_text',
+                'disabled' => !$isAdmin
             ])
         ;
     }

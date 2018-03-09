@@ -8,6 +8,7 @@
     </div>
     <div>
         {{ form_start(form) }}
+        {#{% for name, field in form %}#}
         {{ form_widget(form) }}
         <br />
        <input type="submit" value="{{ 'worker.create'|trans({}, 'worker') }}"/>

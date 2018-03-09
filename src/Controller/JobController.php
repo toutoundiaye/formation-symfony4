@@ -23,8 +23,14 @@ class JobController extends Controller
      */
     public function index(JobRepository $repository)
     {
+        $form = $this
+            ->createFormBuilder(null, [
+                'method' => 'DELETE'])
+            ->getForm();
+
         return $this->render('job/index.html.twig', [
             'jobs' => $repository->findAll(),
+            'form' => $form->createView(),
         ]);
     }
 
@@ -79,5 +85,22 @@ class JobController extends Controller
         return $this->render('job/create.html.twig', [
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/delete/{id}")
+     * @Method("DELETE")
+     */
+    public function delete(
+        Job $job,
+        EntityManagerInterface $manager): Response
+    {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'Only admin can delete a job');
+
+        $manager->remove($job);
+        $manager->flush();
+
+        $this->addFlash('success', 'job.flash.deleted');
+        return $this->redirectToRoute('app_job_index');
     }
 }

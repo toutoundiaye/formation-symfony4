@@ -10,7 +10,9 @@
     <body>
         {% block header%}
             <div>
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 <a href="{{ path('app_security_logout') }}">Log out</a>
+                {% endif %}
                 {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
                     <div> <a href="{{ path('app_security_login') }}"><button>Connexion</button></a></div>
                 {% endif %}

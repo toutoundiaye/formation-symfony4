@@ -1,9 +1,9 @@
 {% extends "base.html.twig" %}
 
-{% block title %}{{ 'security.login.title' |trans }}{% endblock %}
+{% block title %}{{ 'security.login.title' |trans }} - {{ parent() }}{% endblock %}
 
 {% block body %}
-    <h1>{{ 'security.login.page' |trans }} - {{ parent() }}</h1>
+    <h1>{{ 'security.login.page' |trans }}</h1>
     {% if error is not empty %}
         <p style="color: red">{{ error.message }}</p>
     {% endif %}

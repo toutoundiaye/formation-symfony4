@@ -13,7 +13,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
-
 /**
  * @Route("/worker")
  * @Security("is_granted('IS_AUTHENTICATED_FULLY')", message="you must be authenticated before accessing this page")

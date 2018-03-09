@@ -4,6 +4,8 @@ job:
   description: Description
   wage: Tarif horaire (€)
   workers: Employés concernés
-  create: Ajouter un emploi
+  create: Ajouter un poste
+  edit: Éditer
+  suppress: Supprimer
   createJob:
     title : Créer un nouvel emploi

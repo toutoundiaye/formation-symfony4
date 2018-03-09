@@ -22,28 +22,34 @@ class User implements UserInterface
      *
      * @ORM\Column(type="json_array")
      */
-    private $roles;
+    private $roles = ["ROLE_AUTHOR"];
 
     /**
      * @var string
      *
      * @ORM\Column(type="string", length=255 )
      */
-    private $password;
+    private $password = '';
 
     /**
      * @var string
      *
      * @ORM\Column(type="string", length=255 )
      */
-    private $username;
+    private $username = '';
+
+    /**
+     * @var Worker
+     * @ORM\OneToOne(targetEntity="Worker")
+     */
+    private $worker = '';
 
     /**
      * @var string
      *
      * @ORM\Column(type="string", length=255 )
      */
-    private $firstname;
+    private $firstname = '';
 
     /**
      * Returns the roles granted to the user.
@@ -80,6 +86,24 @@ class User implements UserInterface
     }
 
     /**
+     * @return Worker
+     */
+    public function getWorker(): Worker
+    {
+        return $this->worker;
+    }
+
+    /**
+     * @param Worker $worker
+     *
+     * @return UserInterface
+     */
+    public function setWorker(Worker $worker): UserInterface
+    {
+        $this->worker = $worker;
+        return $this;
+    }
+    /**
      * Returns the salt that was originally used to encode the password.
      *
      * This can return null if the password was not encoded using a salt.
@@ -102,12 +126,48 @@ class User implements UserInterface
     }
 
     /**
+     * @param string $username
+     * @return UserInterface
+     */
+    public function setUsername(string $username): UserInterface
+    {
+        $this->username = $username;
+        return $this;
+    }
+
+    /**
+     * @param string $password
+     * @return UserInterface
+     */
+    public function setPassword(string $password): UserInterface
+    {
+        $this->password = $password;
+        return $this;
+    }
+    /**
      * @return string The firstname
      */
     public function getFirstname()
     {
         return $this->firstname;
     }
+
+    public function setFirstname(string $firstname): UserInterface
+    {
+        $this->firstname = $firstname;
+        return $this;
+    }
+    /**
+     * @param string[] $roles
+     * @return UserInterface
+     */
+    public function setRoles(array $roles): UserInterface
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
     /**
      * Removes sensitive data from the user.
      *
