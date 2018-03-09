@@ -10,7 +10,7 @@ worker:
 security:
   login:
     page: Veillez vous identifier
-  title: Login Page
+    title: Login Page
 
 job:
   flash:
