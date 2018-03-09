@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Service;
+namespace App\Dawan\MenuBundle\Service;
 
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Twig;
+namespace App\Dawan\MenuBundle\Twig;
 
-use App\Service\MenuManager;
+use App\Dawan\MenuBundle\Service\MenuManager;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 use Twig\TwigFunction;

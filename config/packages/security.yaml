@@ -42,6 +42,6 @@ security:
          - { path: ^/login_check, roles: IS_AUTHENTICATED_FULLY }
          - { path: ^/job/delete, roles: ROLE_ADMIN }
          - { path: ^/job/edit, roles: ROLE_ADMIN }
-         - { path: ^worker/(create|delete), roles: ROLE_ADMIN }
+         - { path: ^/worker/(create|delete), roles: ROLE_ADMIN }
  #        - { path: ^/, roles: IS_AUTHENTICATED_REMEMBERED } #catch all
 #         - { path: ^/profile, roles: ROLE_USER }
